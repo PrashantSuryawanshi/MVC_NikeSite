@@ -1,0 +1,32 @@
+﻿@using Project_Nike.Models
+@model IEnumerable<Project_Nike.Models.Inventry>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+@*<h1>Index</h1>*@
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<div class="row">
+    @foreach (Project_Nike.Models.Inventry item in ViewBag.Products)
+    {
+        <div class="col-lg-3 col-md-3 col-xs-12">
+        <div class="card" style="width: 18rem;">
+  <img src="~/css/Teal Kurta.png" class="card-img-top"  alt="...">
+  <div class="card-body">
+    <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductName)</h5>
+    <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProductPrice)</h5>
+    <p class="card-text"> </p>
+
+     @Html.ActionLink("Order","Order",new{ProductId=item.ProductId})
+    
+    <a href="#" class="btn btn-primary"></a>
+  </div>
+</div>
+</div>
+    }
+</div>
